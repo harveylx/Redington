@@ -1,0 +1,24 @@
+Harvey Singh - Redington Take Home Test
+
+For the construction of this project, several aspects were thought through. Initially, even though the entire backend could have been built using the new Minimal API format offered by the framework,
+I opted for a more or less "Clean Code" structure. This choice allowed for the integration of practices commonly used in my everyday work, specifically, employing Dependency Injection for services and repositories.
+This approach enables easy modifications to the implementation of various methods, such as the "Log" method in the repository class for saving to a database instead of a file.
+
+Several types of validations were added on both front and back ends to avoid any data corruption. Uncertainty regarding the required decimal precision led to the setting of three decimal places,
+which can be modified by adjusting the FluentValidation Validator PrecisionScale and updating the validation on the front-end TextField.
+
+While CORS checks were omitted for local running, specifying valid origins will be necessary for production. Additional validation was not applied to the CalculationService to avoid overcomplexity,
+given the service's limited size, but can be added if needed.
+
+The testing phase covered controllers, services, and repositories, addressing negative cases on the controller side. Further testing for service and repository sides was deemed excessive but remains possible.
+
+On the front end, a React stateless functional component with hooks was utilized using material-ui. All markup and logic were maintained inside the App.js file as minimal posting to the backend was required.
+For a semblance of real-world application, the base URL and endpoints were shifted to environment variables in the .env file, which are accessed on startup.
+
+Input validation has been established to permit only numeric entries and a dot, enhancing the test’s integrity. Additional conditionals on the button and text fields further prevent the dispatch of malformed data to the controllers.
+
+To activate the service:
+
+    Construct the C# solution and operate it on the https profile (alternatively, modify the base URL value in the .env file on the React app). A port will be accessible on port 7048, where a swagger page is visible.
+
+    Navigate to /probability-calculator/ and execute "npm start", initiating the React app for testing purposes.
